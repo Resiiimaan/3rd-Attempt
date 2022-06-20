@@ -14,5 +14,5 @@ public class RetryButton : MonoBehaviour
 
 	public void Retry(){
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}
+	} 
 }

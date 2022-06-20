@@ -7,92 +7,68 @@ using Random = UnityEngine.Random;
 
 public class CheckForWinner : MonoBehaviour
 {
-    Board game = new Board();
-    Random rand = new Random();
-
-    public CheckForWinner()
+    public class Board
     {
-    }
+        public TicTacToeState playerState = TicTacToeState.cross;
+        public TicTacToeState aiState = TicTacToeState.circle;
 
-    private void handleButtonclick(object sender, EventArgs e){
+        Board game = new Board();
+        public int[] cube;
 
-        Button clickedButton = (Button) sender;
-// MessageBox.Show ("button  " + clickedButton.Tag + "  was clicked");
-
-      //  int gameSquareNumber = (int)clickedButton.Tag;
-
-     //   game.Grid[gameSquareNumber] = 1;
-
-        updateBoard();
-
-      //  if (gameisBoardFull() == true) 
+        public int WinnerEvent()
         {
-          //  MessageBox.show("The board is full");
-            disableAllButtons();
-        }
+// return a 0 if nobody won. return the player number if they won.
 
-     //   else if (game.checkForWinner() ==1)
-        {
-           // MessageBox.Show("Player human wins!");
-            disableAllButtons();
+//top row.
+            if (cube[0] == cube[1] && cube[1] == cube[2])
+            {
+                return cube[0];
+            }
 
-        }
-    //    else
-        {
-// computer's turn
-            computerChoose();
-        }
+//second row.
+            if (cube[3] == cube[4] && cube[4] == cube[5])
+            {
+                return cube[3];
+            }
 
+//third row.
+            if (cube[6] == cube[7] && cube[7] == cube[8])
+            {
+                return cube[6];
+            }
 
+//first column.
+            if (cube[0] == cube[3] && cube[3] == cube[6])
+            {
+                return cube[0];
+            }
 
-    }
+//second column.
+            if (cube[1] == cube[4] && cube[4] == cube[7])
+            {
+                return cube[1];
+            }
 
-    private void updateBoard()
-    {
-        throw new NotImplementedException();
-    }
+//third column.
+            if (cube[2] == cube[5] && cube[5] == cube[8])
+            {
+                return cube[2];
+            }
 
-    private void disableAllButtons()
-    { 
-     // foreach (var item in TicTacToeAI)
-        {
-     //       item.Enabled = false;
-        }
+//first diagonal.
+            if (cube[0] == cube[4] && cube[4] == cube[8])
+            {
+                return cube[0];
+            }
 
-    }
+//second diagonal.
+            if (cube[2] == cube[4] && cube[4] == cube[6])
+            {
+                return cube[2];
+            }
 
-
-    private void computerChoose()
-    {
-
-// computer picks a random number. Update game.Grid to reflect the choice.
-// get a random number from computer
-
-      //  while(computerTurn == -1 || game.Grid[computerTurn] != 0)
-        {
-
-         //   computerTurn = rand.Next(9);
-         //   Console.WriteLine ("Computer chooses  " + computerTurn);
+            return 0;
 
         }
-      //  game.Grid[computerTurn] = 2;
-        updateBoard();
-
-// check for winner
-// check to see if the board is full
-
-      //  if (gameisBoardFull() == true)
-        {
-      //      MessageBox.show("The board is full");
-            disableAllButtons();
-        }
-
-      //  else if (game.checkForWinner() == 2)
-        {
-     //       MessageBox.Show("Player computer wins!");
-            disableAllButtons();
-
-        }
-
     }
 }

@@ -7,8 +7,7 @@ using UnityEngine;
 public class EndMessage : MonoBehaviour
 {
 
-	[SerializeField]
-	private TMP_Text _playerMessage = null;
+	[SerializeField] private TMP_Text _playerMessage;
 
 	public void OnGameEnded(int winner)
 	{

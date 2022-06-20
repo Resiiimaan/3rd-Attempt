@@ -1196,6 +1196,7 @@ GameObject:
   - component: {fileID: 883544039}
   - component: {fileID: 883544038}
   - component: {fileID: 883544037}
+  - component: {fileID: 883544041}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1285,6 +1286,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &883544041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883544036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4516b3bc602078a408c15d5c84c772a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMessage: {fileID: 0}
 --- !u!1 &933829465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1780,7 @@ GameObject:
   - component: {fileID: 1115226685}
   - component: {fileID: 1115226684}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Cube(4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2702,6 +2716,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  AILevel: 2.5
 --- !u!4 &2053529901
 Transform:
   m_ObjectHideFlags: 0
