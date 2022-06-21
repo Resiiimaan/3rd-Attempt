@@ -10,7 +10,7 @@ public class Turns : MonoBehaviour
     int playerState = 1;
     int aiState = 2;
 
-    private void updateBoard()
+    public void updateBoard()
     {
         // Make sure no piece can be put on top of another piece
 
