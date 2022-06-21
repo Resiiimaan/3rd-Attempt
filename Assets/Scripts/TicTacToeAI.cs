@@ -22,12 +22,12 @@ public class TicTacToeAI : MonoBehaviour
 
 	[SerializeField] private int _gridSize = 3;
 	
-	[SerializeField] public TicTacToeState playerState = TicTacToeState.cross;
-	[SerializeField] public TicTacToeState aiState = TicTacToeState.circle;
+	[SerializeField] private TicTacToeState playerState = TicTacToeState.cross;
+	[SerializeField] private TicTacToeState aiState = TicTacToeState.circle;
 
-	[SerializeField] public GameObject _xPrefab;
+	[SerializeField] private GameObject _xPrefab;
 
-	[SerializeField] public GameObject _oPrefab;
+	[SerializeField] private GameObject _oPrefab;
 
 	public UnityEvent onGameStarted;
 
