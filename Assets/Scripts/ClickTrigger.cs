@@ -24,7 +24,7 @@ public class ClickTrigger : MonoBehaviour
 	}
 
 	private void SetInputEndabled(bool val){
-		canClick = val;
+		canClick = true;
 	}
 
 	private void AddReference()

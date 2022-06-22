@@ -9,7 +9,7 @@ using static TicTacToeAI;
 
 public class CheckForWinner : MonoBehaviour
 {
-    public TicTacToeState playerState;
+    public static TicTacToeState playerState;
     public TicTacToeState aiState;
 
     public TicTacToeState PlayerState
@@ -18,72 +18,84 @@ public class CheckForWinner : MonoBehaviour
         set => playerState = TicTacToeState.cross;
     }
 
-    public class Board
-    {
-        public int[] cube;
+    [SerializeField] int[] _cube = new int[9];
 
-        public void EndTurn()
-        {
-            // return a 0 if nobody won. return the player number if they won.
+    void EndTurn()
+    {
+         // return a 0 if nobody won. return the player number if they won.
             //top row.
-            if (cube[0] == (int) TicTacToeState.cross && cube[1] == (int) TicTacToeState.cross &&
-                cube[2] == (int) TicTacToeState.cross)
+            if (_cube[0] == (int) TicTacToeState.cross && _cube[1] == (int) TicTacToeState.cross &&
+                _cube[2] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //Middle row.
-            if (cube[3] == (int) TicTacToeState.cross && cube[4] == (int) TicTacToeState.cross &&
-                cube[5] == (int) TicTacToeState.cross)
+            if (_cube[3] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+                _cube[5] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
             //Bottom row.
-            if (cube[6] == (int) TicTacToeState.cross && cube[7] == (int) TicTacToeState.cross &&
-                cube[8] == (int) TicTacToeState.cross)
+            if (_cube[6] == (int) TicTacToeState.cross && _cube[7] == (int) TicTacToeState.cross &&
+                _cube[8] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
             //First Colum.
-            if (cube[0] == (int) TicTacToeState.cross && cube[3] == (int) TicTacToeState.cross &&
-                cube[6] == (int) TicTacToeState.cross)
+            if (_cube[0] == (int) TicTacToeState.cross && _cube[3] == (int) TicTacToeState.cross &&
+                _cube[6] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
             //Middle Colum.
-            if (cube[1] == (int) TicTacToeState.cross && cube[4] == (int) TicTacToeState.cross &&
-                cube[7] == (int) TicTacToeState.cross)
+            if (_cube[1] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+                _cube[7] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
             //Right Colum.
-            if (cube[2] == (int) TicTacToeState.cross && cube[5] == (int) TicTacToeState.cross &&
-                cube[8] == (int) TicTacToeState.cross)
+            if (_cube[2] == (int) TicTacToeState.cross && _cube[5] == (int) TicTacToeState.cross &&
+                _cube[8] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
             //First Diagonal.
-            if (cube[0] == (int) TicTacToeState.cross && cube[4] == (int) TicTacToeState.cross &&
-                cube[8] == (int) TicTacToeState.cross)
+            if (_cube[0] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+                _cube[8] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
             //Second Diagonal.
-            if (cube[20] == (int) TicTacToeState.cross && cube[4] == (int) TicTacToeState.cross &&
-                cube[6] == (int) TicTacToeState.cross)
+            if (_cube[20] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+                _cube[6] == (int) TicTacToeState.cross)
             {
+                GameOver();
             }
 
-            void GameOver()
-            {
-                for (int i = 0; i < cube.Length; i++)
-                {
+            ChangeSides();
+        }
 
-                }
-            }
-
-
-
+    void GameOver()
+    {
+        for (int i = 0; i < _cube.Length; i++)
+        {
+            Debug.Log("Game over");
         }
     }
-}
+    static void ChangeSides()
+    {
+        playerState = (playerState == TicTacToeState.cross) ? TicTacToeState.circle : TicTacToeState.cross;
+    }
+
+    }
+
+    
+
+  

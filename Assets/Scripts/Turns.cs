@@ -5,8 +5,9 @@ using UnityEngine;
 public class Turns : MonoBehaviour
 {
     public GameObject[] cube = new GameObject[9];
-    CheckForWinner.Board game = new CheckForWinner.Board();
+    [SerializeField] int[] _cube = new int[9];
 
+    private int unoccupied = 0;
     int playerState = 1;
     int aiState = 2;
 
@@ -14,17 +15,17 @@ public class Turns : MonoBehaviour
     {
         // Make sure no piece can be put on top of another piece
 
-        for (int i = 0; i < game.cube.Length; i++)
+        for (int i = 0; i < _cube.Length; i++)
         {
-            if (game.cube[i] == 0)
+            if (_cube[i] == unoccupied)
             {
                 cube[i].SetActive(true);
             }
-            else if (game.cube[i] == playerState)
+            else if (_cube[i] == playerState)
             {
                 cube[i].SetActive(false);
             }
-            else if (game.cube[i] == aiState)
+            else if (_cube[i] == aiState)
             {
                 cube[i].SetActive(false);
             }

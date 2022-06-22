@@ -16,7 +16,7 @@ public class TicTacToeAI : MonoBehaviour
 
 	int _aiLevel;
 
-	TicTacToeState[,] boardState;
+	TicTacToeState[,] _boardState;
 
 	[SerializeField] private bool _isPlayerTurn;
 
@@ -39,18 +39,6 @@ public class TicTacToeAI : MonoBehaviour
 	//difficulty change 
 	[SerializeField] private float AILevel;
 	
-	float CalculateWaveDifficulty()
-	{
-		float difficulty = 3;
-		//foreach (GameObject cube in TicTacToeState);
-		{
-			//difficulty += TicTacToeState.getComponent<Points>().points;
-		}
-		//difficulty /= (amountofcubes *6);
-
-		return difficulty;
-
-	}
 	private void Awake()
 	{
 		if(onPlayerWin == null){
