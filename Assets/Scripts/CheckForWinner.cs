@@ -7,17 +7,12 @@ using Random = UnityEngine.Random;
 using TMPro;
 using static TicTacToeAI;
 
+
 public class CheckForWinner : MonoBehaviour
 {
     public static TicTacToeState playerState;
     public TicTacToeState aiState;
-
-    public TicTacToeState PlayerState
-    {
-        get => playerState;
-        set => playerState = TicTacToeState.cross;
-    }
-
+    
     [SerializeField] int[] _cube = new int[9];
 
     void EndTurn()
@@ -27,53 +22,53 @@ public class CheckForWinner : MonoBehaviour
             if (_cube[0] == (int) TicTacToeState.cross && _cube[1] == (int) TicTacToeState.cross &&
                 _cube[2] == (int) TicTacToeState.cross)
             {
-                GameOver();
+                return WinnerEvent();
             }
 
             //Middle row.
-            if (_cube[3] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+            else if (_cube[3] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
                 _cube[5] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //Bottom row.
-            if (_cube[6] == (int) TicTacToeState.cross && _cube[7] == (int) TicTacToeState.cross &&
+           else if (_cube[6] == (int) TicTacToeState.cross && _cube[7] == (int) TicTacToeState.cross &&
                 _cube[8] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //First Colum.
-            if (_cube[0] == (int) TicTacToeState.cross && _cube[3] == (int) TicTacToeState.cross &&
+            else if (_cube[0] == (int) TicTacToeState.cross && _cube[3] == (int) TicTacToeState.cross &&
                 _cube[6] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //Middle Colum.
-            if (_cube[1] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+            else if (_cube[1] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
                 _cube[7] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //Right Colum.
-            if (_cube[2] == (int) TicTacToeState.cross && _cube[5] == (int) TicTacToeState.cross &&
+            else if (_cube[2] == (int) TicTacToeState.cross && _cube[5] == (int) TicTacToeState.cross &&
                 _cube[8] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //First Diagonal.
-            if (_cube[0] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+            else if (_cube[0] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
                 _cube[8] == (int) TicTacToeState.cross)
             {
                 GameOver();
             }
 
             //Second Diagonal.
-            if (_cube[20] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
+            else if (_cube[20] == (int) TicTacToeState.cross && _cube[4] == (int) TicTacToeState.cross &&
                 _cube[6] == (int) TicTacToeState.cross)
             {
                 GameOver();
@@ -82,11 +77,14 @@ public class CheckForWinner : MonoBehaviour
             ChangeSides();
         }
 
-    void GameOver()
+    /// <summary>
+    ///  Stopped here, trying to get the syntax for GAMEOVER!!
+    /// </summary>
+    public void GameOver()
     {
         for (int i = 0; i < _cube.Length; i++)
         {
-            Debug.Log("Game over");
+            playerState.enabled = false;
         }
     }
     static void ChangeSides()

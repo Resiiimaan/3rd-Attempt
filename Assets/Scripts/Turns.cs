@@ -5,8 +5,9 @@ using UnityEngine;
 public class Turns : MonoBehaviour
 {
     public GameObject[] cube = new GameObject[9];
-    [SerializeField] int[] _cube = new int[9];
+    [SerializeField] int[] _cube;
 
+    
     private int unoccupied = 0;
     int playerState = 1;
     int aiState = 2;
